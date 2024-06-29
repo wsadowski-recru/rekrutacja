@@ -30,8 +30,15 @@ abstract class AbstractLoanFeeCalculator implements FeeCalculator
                 $x1 = $keys[$i + 1];
                 $y0 = $values[$i];
                 $y1 = $values[$i + 1];
+
                 $fee = $y0 + (($amount - $x0) / ($x1 - $x0)) * ($y1 - $y0);
-                return ceil(($fee + $amount) / 5) * 5 - $amount;
+                $fee = ceil($fee * 100) / 100;
+                $totalAmount = $amount + $fee;
+
+                $roundedTotalAmount = ceil($totalAmount / 5) * 5;
+                $finalFee = $roundedTotalAmount - $amount;
+
+                return round($finalFee, 2);
             }
         }
 

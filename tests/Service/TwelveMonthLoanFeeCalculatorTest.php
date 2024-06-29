@@ -28,6 +28,8 @@ class TwelveMonthLoanFeeCalculatorTest extends TestCase
     {
         return [
             [12, 2750, 90.0],
+            // I think its good, if I can read fine :D
+            [12, 1001.99, 53.01],
             [12, 5000, 100.0],
             [12, 15000, 300.0]
         ];
