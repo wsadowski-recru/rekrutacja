@@ -38,7 +38,7 @@ jobs:
           php-version: '8.2'
 
       - name: Install PHP CodeSniffer
-        run: composer global require "squizlabs/php_codesniffer=*"
+        run: composer require --dev squizlabs/php_codesniffer
 
       - name: Install Composer dependencies
         run: composer install --prefer-dist --no-progress
