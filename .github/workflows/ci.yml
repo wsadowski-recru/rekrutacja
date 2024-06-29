@@ -8,7 +8,7 @@ on:
     branches:
       - main
 jobs:
-  build:
+  tests:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -24,3 +24,25 @@ jobs:
 
       - name: Run tests
         run: vendor/bin/phpunit tests
+
+  check-code-style:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.2'
+
+      - name: Install PHP CodeSniffer
+        run: composer require --dev squizlabs/php_codesniffer
+
+      - name: Install Composer dependencies
+        run: composer install --prefer-dist --no-progress
+
+      - name: Check code style
+        run: vendor/bin/phpcs --standard=PSR12 src tests --ignore=src/Service/TwelveMonthLoanFeeCalculator.php,src/Service/TwentyFourMonthLoanFeeCalculator.php
+

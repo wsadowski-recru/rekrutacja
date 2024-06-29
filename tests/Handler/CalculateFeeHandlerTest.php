@@ -12,7 +12,7 @@ use PragmaGoTech\Interview\Validator\LoanProposalValidator;
 
 class CalculateFeeHandlerTest extends TestCase
 {
-    private CalculateFeeHandler  $calculateFeeHandler;
+    private CalculateFeeHandler $calculateFeeHandler;
     private LoanProposalValidator $loanProposalValidator;
 
     public function setUp(): void
