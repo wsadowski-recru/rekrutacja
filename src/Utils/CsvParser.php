@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace PragmaGoTech\Interview\Utils;
 
-
 use InvalidArgumentException;
 
 class CsvParser
