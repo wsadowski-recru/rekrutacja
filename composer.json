@@ -10,6 +10,12 @@
     "autoload": {
         "psr-4": {
             "PragmaGoTech\\Interview\\": "src/"
+        },
+        "psr-4-dev": {
+            "PragmaGoTech\\Interview\\Tests\\": "tests/"
         }
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^11.2"
     }
 }
